@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>cloudcli</Name>
+  <Repository>ghcr.io/ripleyxlr8/cloudcli-unraid:latest</Repository>
+  <Registry>https://github.com/ripleyXLR8/cloudcli-unraid/pkgs/container/cloudcli-unraid</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://github.com/ripleyXLR8/cloudcli-unraid/issues</Support>
+  <Project>https://github.com/ripleyXLR8/cloudcli-unraid</Project>
+  <Overview>Claude Code on the Unraid host: CloudCLI web UI (chat, terminal, files, git) plus a Claude Code Remote Control server for claude.ai/code and the Claude mobile app. Privileged, shares the host PID namespace and mounts the host root at /host: full root access to the server. LAN only, do not expose.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:3001]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ripleyXLR8/cloudcli-unraid/main/cloudcli-unraid-icon.png</Icon>
+  <ExtraParams>--pid=host</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <Requires>A Claude Pro or Max subscription.</Requires>
+  <Config Name="Web UI port" Target="3001" Default="3001" Mode="tcp" Description="CloudCLI web UI" Type="Port" Display="always" Required="true" Mask="false">3001</Config>
+  <Config Name="Home" Target="/root" Default="" Mode="rw" Description="Claude login, sessions, CloudCLI database and the Claude CLI itself. Use a pool path (/mnt/cache/...), not /mnt/user: SQLite." Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Host root" Target="/host" Default="/" Mode="rw" Description="Host root filesystem" Type="Path" Display="always" Required="true" Mask="false">/</Config>
+  <Config Name="JWT_SECRET" Target="JWT_SECRET" Default="" Mode="" Description="Long random string signing CloudCLI logins" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="WORKSPACES_ROOT" Target="WORKSPACES_ROOT" Default="/host/mnt/user" Mode="" Description="Projects must live under this path" Type="Variable" Display="advanced" Required="false" Mask="false">/host/mnt/user</Config>
+  <Config Name="RC_DIR" Target="RC_DIR" Default="/host/mnt/user" Mode="" Description="Working directory of Remote Control sessions" Type="Variable" Display="advanced" Required="false" Mask="false">/host/mnt/user</Config>
+</Container>
