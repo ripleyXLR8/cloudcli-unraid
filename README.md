@@ -12,4 +12,6 @@ The container is privileged, shares the host PID namespace and mounts `/` at `/h
 2. In its terminal: `cd /host/mnt/user && claude`, `/login`, accept the folder trust, then `/remote-control` once to enable it.
 3. Remote Control starts by itself within 30 s of the login.
 
+Python projects: `python3 -m venv .venv` in the project (python3-venv and the Playwright Chromium system libraries are in the image; browsers go to /root/.cache).
+
 Update: bump `CLOUDCLI_VERSION` in `dockerfile` and push.
