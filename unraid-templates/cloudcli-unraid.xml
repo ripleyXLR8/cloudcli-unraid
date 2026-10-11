@@ -20,7 +20,7 @@
   <Requires>A Claude Pro or Max subscription.</Requires>
   <Config Name="Web UI port" Target="3001" Default="3001" Mode="tcp" Description="CloudCLI web UI" Type="Port" Display="always" Required="true" Mask="false">3001</Config>
   <Config Name="Home" Target="/root" Default="" Mode="rw" Description="Claude login, sessions, CloudCLI database and the Claude CLI itself. Use a pool path (/mnt/cache/...), not /mnt/user: SQLite." Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Host root" Target="/host" Default="/" Mode="rw" Description="Host root filesystem" Type="Path" Display="always" Required="true" Mask="false">/</Config>
+  <Config Name="Host root" Target="/host" Default="/" Mode="rw,slave" Description="Host root filesystem" Type="Path" Display="always" Required="true" Mask="false">/</Config>
   <Config Name="JWT_SECRET" Target="JWT_SECRET" Default="" Mode="" Description="Long random string signing CloudCLI logins" Type="Variable" Display="always" Required="true" Mask="true"/>
   <Config Name="WORKSPACES_ROOT" Target="WORKSPACES_ROOT" Default="/host/mnt/user" Mode="" Description="Projects must live under this path" Type="Variable" Display="advanced" Required="false" Mask="false">/host/mnt/user</Config>
   <Config Name="RC_DIR" Target="RC_DIR" Default="/host/mnt/user" Mode="" Description="Working directory of Remote Control sessions" Type="Variable" Display="advanced" Required="false" Mask="false">/host/mnt/user</Config>
